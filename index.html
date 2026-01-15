@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="be">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коляда — Белорусский праздник</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/main.css">
+    >
+</head>
+
+<body>
+    <!-- Снежинки -->
+    <div id="snowflakes"></div>
+
+    <!-- НАВИГАЦИЯ -->
+    <nav>
+        <div class="logo" onclick="scrollToTop()">
+            <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
+                <span class="logo-text">SB.BY</span>
+            </a>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="#about" class="nav-link">О празднике</a>
+            <a href="#gallery" class="nav-link">Фото</a>
+            <a href="#traditions" class="nav-link">Традиции</a>
+            <a href="#quiz" class="nav-link">Викторина</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- ГЕРОЙ -->
+    <section class="hero">        
+        <div class="hero-content">
+            <div class="live-report" id="live">
+                ЖИВОЙ РЕПОРТАЖ
+            </div>
+            <h1>Пришла Коляда<br>— отворяй ворота</h1>
+            <p>✦ Яркий и колоритный народный праздник ✦</p>
+            <button class="cta-button"
+                onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Узнать больше</button>
+        </div>
+    </section>
+
+    <!-- О ПРАЗДНИКЕ -->
+    <section class="content-section" id="about">
+        <div class="container">
+            <h2 class="section-title">О Коляде</h2>
+            <div class="content-text">
+                <p>Коляда — <span class="highlight">яркий и колоритный народный праздник</span>, который приносит много
+                    радости и веселья. Он наполнен сакральными смыслами и отсылает нас к корням, помогая сохранять связь
+                    поколений.</p>
+
+                <p>Уже не одно десятилетие колядные традиции воссоздаются жителями агрогородка <span
+                        class="highlight">Полыковичи</span>: в этой местности празднуют все три Коляды — бедную,
+                    богатую, или щедрую, и водную. Народные гулянья начинаются с Рождественского сочельника и идут
+                    вплоть до Крещения.</p>
+
+                <p>В это время года весь край наполняется волшебством и ожиданием чуда. Колядовщики в ярких нарядах
+                    обходят дома, неся с собой радость, веселье и благословение на весь предстоящий год. Каждый дом,
+                    каждая семья ждут этих гостей с нетерпением.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Праздничные моменты</h2>
+            <div class="gallery-grid">
+                <!-- ... существующие карточки галереи ... -->
+                <div class="photo-card">
+                    <div class="photo-placeholder">🎭</div>
+                    <div class="photo-info">
+                        <div class="photo-title">Ряженые дома</div>
+                        <div class="photo-author">Иван Петрович</div>
+                        <div class="photo-comment">"Когда видишь таких ряженых на пороге, сразу становится весело! Это
+                            волшебство настоящего."</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="photo-placeholder">🎵</div>
+                    <div class="photo-info">
+                        <div class="photo-title">Колядные напевы</div>
+                        <div class="photo-author">Мария Сидоренко</div>
+                        <div class="photo-comment">"Эти душевные мотивы разносятся по всему агрогородку, даже январский
+                            мороз отступает перед задором!"</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="photo-placeholder">🌾</div>
+                    <div class="photo-info">
+                        <div class="photo-title">Зерно для урожая</div>
+                        <div class="photo-author">Татьяна Жигалина</div>
+                        <div class="photo-comment">"Колядовщики рассыпают в доме зерно, заложивая основу под будущий
+                            урожай. Древняя мудрость предков."</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="photo-placeholder">🥣</div>
+                    <div class="photo-info">
+                        <div class="photo-title">Святая кутья</div>
+                        <div class="photo-author">Елена Козлова</div>
+                        <div class="photo-comment">"Кутья на праздничном столе — это не просто каша, это молитва и
+                            благодарность высшим силам за достаток."</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="photo-placeholder">🎉</div>
+                    <div class="photo-info">
+                        <div class="photo-title">Веселые проказы</div>
+                        <div class="photo-author">Дмитрий Новиков</div>
+                        <div class="photo-comment">"Девчата переодели самого красивого хлопца в женский наряд! Смеху
+                            было не переносить, вот это праздник!"</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="photo-placeholder">⛄</div>
+                    <div class="photo-info">
+                        <div class="photo-title">Зимняя магия</div>
+                        <div class="photo-author">Анна Белоус</div>
+                        <div class="photo-comment">"На Коляду происходит чудо — старое уходит, новое приходит. Мороз,
+                            песни, смех и радость каждого дома."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ТРАДИЦИИ -->
+    <section class="content-section" id="traditions">
+        <div class="container">
+            <h2 class="section-title">Заложить основу под будущий урожай</h2>
+            <div class="content-text">
+                <p>Колядные напевы разлетаются по всему агрогородку Полыковичи, и от этих <span
+                        class="highlight">душевных мотивов становится легко и весело</span>. Даже январский мороз
+                    отступает перед задором ряженых — большая праздничная процессия танцует, поет и радует людей. В
+                    каждом доме колядовщиков ждут с нетерпением: если появились на пороге — хозяевам почет и уважение.
+                </p>
+
+                <p><span class="highlight">Коляда для наших предков была важным годовым этапом</span>, потому что давала
+                    начало новому земледельческому кругу. В это время прадеды закладывали основу под будущий урожай,
+                    проводили обряды на достаток и благополучие. Колядовщики рассыпали в доме зерно, а сами хозяева под
+                    скатерть на праздничном столе стелили охапку колосьев, чтобы земля в этом году была плодородной.</p>
+
+                <p>Ни одна вечерняя трапеза на Коляду не обходилась без <span class="highlight">кутьи</span>, которая
+                    тоже играла важную роль. По традиции ее выносили на улицу и, приговаривая, задабривали высшие силы:
+                    «Эй, мороз, выходи кутью есть! Не морозь то, что мы посеем в этом году!» А еще от каждой Коляды —
+                    бедной, богатой и водной — оставляли по ложечке каши. Ее смешивали с крещенской водой и добавляли в
+                    корм животным, чтобы они были здоровые и давали хороший приплод.</p>
+
+                <p>Особый колорит празднику придавали <span class="highlight">народные гулянья</span>. Они начинались
+                    вечером, ведь в колядный период после обеда запрещались все домашние дела, в первую очередь
+                    рукоделие — нельзя шить, вышивать и вязать. Но если женщина нагрешила, то приходилось искупать:
+                    выходила на порог, разрубала старый веник и пускала прутья по ветру — пусть летят и забирают с собой
+                    провинность.</p>
+
+                <p>Коляды всегда приносили смех и веселье, за что их любили дети и взрослые. На этот раз в Полыковичах
+                    тоже не обошлось без проказ. Перед выходом на улицу девчата всей гурьбой взяли в плен самого
+                    красивого хлопца на деревне. По местным обычаям, его переодели в женский наряд и для потехи повели в
+                    толпе ряженых. Для пущей убедительности парню даже щеки нарумянили.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ВИКТОРИНА -->
+    <section class="quiz" id="quiz">
+        <div class="container">
+            <h2 class="section-title" style="color: white; margin-bottom: 50px;">Тест знаний про Коляду</h2>
+
+            <div class="quiz-container">
+                <div class="quiz-progress">
+                    Вопрос <span id="currentQuestion">1</span> из <span id="totalQuestions">5</span>
+                </div>
+
+                <div class="quiz-question active">
+                    <div class="question-text">В каком агрогородке живет традиция Коляды?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">Полыковичи</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Витебск</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Минск</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Гродно</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <div class="question-text">Сколько видов Коляды празднуют в Полыковичах?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Две</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">Три</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Четыре</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Пять</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <div class="question-text">Что символизировало рассыпание зерна в доме?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Веселье</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Болезнь</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">Плодородие и благополучный урожай
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Войну</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <div class="question-text">Какое блюдо обязательно было на столе в Коляду?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Борщ</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">Кутья</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Мясной суп</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Уха</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <div class="question-text">Какие работы были запрещены в колядный период после обеда?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Готовка</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">Шитье, вышивание, вязание</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Умывание</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">Говорение</div>
+                    </div>
+                </div>
+
+                <div class="quiz-result">
+                    <div class="result-score" id="finalScore">0%</div>
+                    <div class="result-text" id="resultText"></div>
+                    <button class="restart-btn" onclick="restartQuiz()">Пройти тест заново</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>✦ Пришла Коляда — отворяй ворота ✦</p>
+        <p>Белорусский народный праздник • Традиции и магия зимних торжеств</p>
+        <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.8;">Создано с любовью к белорусской культуре</p>
+    </footer>
+
+    <!-- Кнопка Back to Top -->
+    <div class="back-to-top" id="backToTop">
+        <div class="images-container">
+            <div class="image-wrapper">
+                <img src="./assets/img/koladki-1.png"
+                    alt="Вверх" class="animated-image image-1">
+            </div>
+            <div class="image-wrapper">
+                <img src="./assets/img/koladki-2.png"
+                    alt="Вниз" class="animated-image image-2">
+            </div>
+            <div class="image-wrapper">
+                <img src="./assets/img/koladki-3.png"
+                    alt="Круг" class="animated-image image-3">
+            </div>
+            <div class="image-wrapper">
+                <img src="./assets/img/koladki-4.png"
+                    alt="Квадрат" class="animated-image image-4">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(loadYandexMetrika, 3000);
+            setTimeout(loadGTM, 4000);
+        });
+
+        function loadYandexMetrika() {
+            (function (m, e, t, r, i, k, a) {
+                m[i] =
+                    m[i] ||
+                    function () {
+                        (m[i].a = m[i].a || []).push(arguments);
+                    };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) {
+                    if (document.scripts[j].src === r) return;
+                }
+                (k = e.createElement(t)),
+                    (a = e.getElementsByTagName(t)[0]),
+                    (k.async = 1),
+                    (k.src = r),
+                    a.parentNode.insertBefore(k, a);
+            })(
+                window,
+                document,
+                "script",
+                "https://mc.yandex.ru/metrika/tag.js",
+                "ym"
+            );
+
+            ym(16707172, "init", {
+                webvisor: true,
+                clickmap: true,
+                accurateTrackBounce: true,
+                trackLinks: true,
+            });
+        }
+
+        function loadGTM() {
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-KRVNNK");
+        }
+    </script>
+    <style>
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+
+</html>
