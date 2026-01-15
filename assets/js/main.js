@@ -434,3 +434,222 @@ function loadGTM() {
 document.addEventListener('DOMContentLoaded', function() {
   // Основная инициализация произойдет в load event listener выше
 });
+
+/* ========== ГАЛЕРЕЯ С МОДАЛЬНЫМ ОКНОМ ========== */
+
+class GalleryModal {
+  constructor() {
+    this.currentIndex = 0;
+    this.galleryData = this.loadGalleryData();
+    this.totalImages = this.galleryData.length;
+    
+    this.modal = document.getElementById('modalGallery');
+    this.modalImage = document.getElementById('modalImage');
+    this.modalTitle = document.getElementById('modalTitle');
+    this.modalAuthor = document.getElementById('modalAuthor');
+    this.modalComment = document.getElementById('modalComment');
+    this.prevBtn = document.getElementById('prevBtn');
+    this.nextBtn = document.getElementById('nextBtn');
+    this.closeBtn = document.getElementById('closeBtn');
+    this.progressBar = document.getElementById('progressBar');
+    this.currentIndexEl = document.getElementById('currentIndex');
+    this.totalIndexEl = document.getElementById('totalIndex');
+    this.loadingSpinner = document.querySelector('.loading-spinner');
+    
+    this.init();
+  }
+
+  // Загрузить данные галереи из JSON
+  loadGalleryData() {
+    const dataElement = document.getElementById('galleryData');
+    if (!dataElement) {
+      console.warn('Gallery data not found');
+      return [];
+    }
+    try {
+      return JSON.parse(dataElement.textContent);
+    } catch (e) {
+      console.error('Error parsing gallery data:', e);
+      return [];
+    }
+  }
+
+  // Инициализация
+  init() {
+    if (this.totalImages === 0) return;
+
+    // Установить количество фотографий
+    this.totalIndexEl.textContent = this.totalImages;
+
+    // События клика на фотографии
+    this.initGalleryItems();
+
+    // События кнопок навигации
+    this.prevBtn.addEventListener('click', () => this.prevImage());
+    this.nextBtn.addEventListener('click', () => this.nextImage());
+    this.closeBtn.addEventListener('click', () => this.closeModal());
+
+    // Клавиатурная навигация
+    this.setupKeyboardNav();
+
+    // Закрытие при клике на фон
+    document.querySelector('.modal-backdrop').addEventListener('click', () => this.closeModal());
+
+    // Touch/Swipe навигация
+    this.setupSwipeNav();
+  }
+
+  // Инициализировать клики на фотографии
+  initGalleryItems() {
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach((item, index) => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', () => {
+        this.currentIndex = index;
+        this.openModal();
+      });
+
+      // Поддержка клавиатуры (Enter/Space)
+      item.setAttribute('tabindex', '0');
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.currentIndex = index;
+          this.openModal();
+        }
+      });
+    });
+  }
+
+  // Открыть модальное окно
+  openModal() {
+    this.modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    this.updateModal();
+    this.focusModal();
+  }
+
+  // Закрыть модальное окно
+  closeModal() {
+    this.modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Обновить содержимое модального окна
+  updateModal() {
+    const image = this.galleryData[this.currentIndex];
+    
+    if (!image) return;
+
+    // Показать спиннер
+    this.loadingSpinner.classList.add('active');
+
+    // Загрузить изображение
+    const img = new Image();
+    img.onload = () => {
+      this.modalImage.src = image.image;
+      this.modalImage.alt = image.title;
+      this.loadingSpinner.classList.remove('active');
+    };
+    img.onerror = () => {
+      this.loadingSpinner.classList.remove('active');
+      this.modalImage.src = './assets/img/placeholder.jpg';
+    };
+    img.src = image.image;
+
+    // Обновить информацию
+    this.modalTitle.textContent = image.title;
+    this.modalAuthor.textContent = image.author;
+    this.modalComment.textContent = `"${image.comment}"`;
+
+    // Обновить счетчик и прогресс бар
+    this.currentIndexEl.textContent = this.currentIndex + 1;
+    const progressWidth = ((this.currentIndex + 1) / this.totalImages) * 100;
+    this.progressBar.style.width = progressWidth + '%';
+
+    // Обновить атрибуты доступности
+    this.modal.setAttribute('aria-label', 
+      `Фотография ${this.currentIndex + 1} из ${this.totalImages}: ${image.title}`);
+  }
+
+  // Следующее изображение
+  nextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.totalImages;
+    this.updateModal();
+  }
+
+  // Предыдущее изображение
+  prevImage() {
+    this.currentIndex = (this.currentIndex - 1 + this.totalImages) % this.totalImages;
+    this.updateModal();
+  }
+
+  // Клавиатурная навигация
+  setupKeyboardNav() {
+    document.addEventListener('keydown', (e) => {
+      if (!this.modal.classList.contains('active')) return;
+
+      switch (e.key) {
+        case 'ArrowRight':
+          this.nextImage();
+          break;
+        case 'ArrowLeft':
+          this.prevImage();
+          break;
+        case 'Escape':
+          this.closeModal();
+          break;
+        case ' ':
+          e.preventDefault();
+          // Space переключает в fullscreen режим
+          this.modal.classList.toggle('fullscreen');
+          break;
+      }
+    });
+  }
+
+  // Touch/Swipe навигация для мобильных
+  setupSwipeNav() {
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    this.modal.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    this.modal.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      this.handleSwipe();
+    }, false);
+
+    const handleSwipe = () => {
+      const swipeDistance = 50; // минимальное расстояние для свайпа
+      
+      if (touchStartX - touchEndX > swipeDistance) {
+        // Свайп влево → следующее изображение
+        this.nextImage();
+      }
+      
+      if (touchEndX - touchStartX > swipeDistance) {
+        // Свайп вправо → предыдущее изображение
+        this.prevImage();
+      }
+    };
+
+    this.handleSwipe = handleSwipe;
+  }
+
+  // Установить фокус на модальное окно
+  focusModal() {
+    this.closeBtn.focus();
+  }
+}
+
+// Инициализировать галерею при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = new GalleryModal();
+  
+  // Сделать доступным глобально для отладки
+  window.gallery = gallery;
+});
+

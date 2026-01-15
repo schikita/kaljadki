@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Коляда — яркий белорусский народный праздник. Узнайте о традициях, обычаях и истории празднования Коляды в Полыковичах.">
+    <meta name="description"
+        content="Коляда — яркий белорусский народный праздник. Узнайте о традициях, обычаях и истории празднования Коляды в Полыковичах.">
     <meta name="keywords" content="Коляда, белорусский праздник, традиции, Полыковичи">
     <meta name="author" content="SB.BY">
-    
+
     <title>Коляда — Белорусский праздник | SB.BY</title>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -24,7 +25,8 @@
     <!-- НАВИГАЦИЯ -->
     <nav role="navigation" aria-label="Основная навигация">
         <div class="logo" onclick="scrollToTop()" role="button" tabindex="0" aria-label="На главную">
-            <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer" aria-label="Перейти на SB.BY">
+            <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer"
+                aria-label="Перейти на SB.BY">
                 <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
                 <span class="logo-text">SB.BY</span>
             </a>
@@ -42,7 +44,7 @@
         </div>
     </nav>
 
- 
+
     <section class="hero" aria-label="Приветственный баннер">
         <div class="hero-content">
             <div class="live-report" id="live" aria-label="Живой репортаж">
@@ -55,7 +57,7 @@
         </div>
     </section>
 
-   
+
     <section class="content-section" id="about" aria-labelledby="about-title">
         <div class="container">
             <h2 class="section-title" id="about-title">О Коляде</h2>
@@ -76,75 +78,161 @@
         </div>
     </section>
 
-    <!-- ГАЛЕРЕЯ -->
+  
+    <!-- ГАЛЕРЕЯ С МОДАЛЬНЫМ ОКНОМ -->
     <section class="gallery" id="gallery" aria-labelledby="gallery-title">
         <div class="container">
             <h2 class="section-title" id="gallery-title">Праздничные моменты</h2>
+
+       
             <div class="gallery-grid" role="region" aria-label="Галерея фотографий">
-                <div class="photo-card">
-                    <div class="photo-placeholder" aria-hidden="true">🎭</div>
-                    <div class="photo-info">
-                        <div class="photo-title">Ряженые дома</div>
-                        <div class="photo-author">Автор: Иван Петрович</div>
-                        <div class="photo-comment">"Когда видишь таких ряженых на пороге, сразу становится весело! Это
-                            волшебство настоящего."</div>
+                <div class="gallery-item" data-index="0">
+                    <img src="./assets/img/gallery/1.jpg" alt="Ряженые дома" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                     
                     </div>
                 </div>
 
-                <div class="photo-card">
-                    <div class="photo-placeholder" aria-hidden="true">🎵</div>
-                    <div class="photo-info">
-                        <div class="photo-title">Колядные напевы</div>
-                        <div class="photo-author">Автор: Мария Сидоренко</div>
-                        <div class="photo-comment">"Эти душевные мотивы разносятся по всему агрогородку, даже январский
-                            мороз отступает перед задором!"</div>
+                <div class="gallery-item" data-index="1">
+                    <img src="./assets/img/gallery/2.jpg" alt="Колядные напевы" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                      
                     </div>
                 </div>
 
-                <div class="photo-card">
-                    <div class="photo-placeholder" aria-hidden="true">🌾</div>
-                    <div class="photo-info">
-                        <div class="photo-title">Зерно для урожая</div>
-                        <div class="photo-author">Автор: Татьяна Жигалина</div>
-                        <div class="photo-comment">"Колядовщики рассыпают в доме зерно, заложивая основу под будущий
-                            урожай. Древняя мудрость предков."</div>
+                <div class="gallery-item" data-index="2">
+                    <img src="./assets/img/gallery/3.jpg" alt="Зерно для урожая" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                       
                     </div>
                 </div>
 
-                <div class="photo-card">
-                    <div class="photo-placeholder" aria-hidden="true">🥣</div>
-                    <div class="photo-info">
-                        <div class="photo-title">Святая кутья</div>
-                        <div class="photo-author">Автор: Елена Козлова</div>
-                        <div class="photo-comment">"Кутья на праздничном столе — это не просто каша, это молитва и
-                            благодарность высшим силам за достаток."</div>
+                <div class="gallery-item" data-index="3">
+                    <img src="./assets/img/gallery/4.jpg" alt="Святая кутья" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                       
                     </div>
                 </div>
 
-                <div class="photo-card">
-                    <div class="photo-placeholder" aria-hidden="true">🎉</div>
-                    <div class="photo-info">
-                        <div class="photo-title">Веселые проказы</div>
-                        <div class="photo-author">Автор: Дмитрий Новиков</div>
-                        <div class="photo-comment">"Девчата переодели самого красивого хлопца в женский наряд! Смеху
-                            было не переносить, вот это праздник!"</div>
+                <div class="gallery-item" data-index="4">
+                    <img src="./assets/img/gallery/5.jpg" alt="Веселые проказы" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                      
                     </div>
                 </div>
 
-                <div class="photo-card">
-                    <div class="photo-placeholder" aria-hidden="true">⛄</div>
-                    <div class="photo-info">
-                        <div class="photo-title">Зимняя магия</div>
-                        <div class="photo-author">Автор: Анна Белоус</div>
-                        <div class="photo-comment">"На Коляду происходит чудо — старое уходит, новое приходит. Мороз,
-                            песни, смех и радость каждого дома."</div>
+                <div class="gallery-item" data-index="5">
+                    <img src="./assets/img/gallery/6.jpg" alt="Зимняя магия" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                     
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ТРАДИЦИИ -->
+ 
+    <div class="modal-gallery" id="modalGallery" role="dialog" aria-modal="true"
+        aria-label="Просмотр фотографии в полном размере">
+    
+        <div class="modal-backdrop"></div>
+
+
+        <div class="modal-content">
+            
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="" class="modal-image">
+
+           
+                <div class="loading-spinner"></div>
+            </div>
+
+        
+            <div class="modal-info">
+                <h3 id="modalTitle" class="modal-title">Название фото</h3>
+                <p id="modalAuthor" class="modal-author">Автор</p>
+                <p id="modalComment" class="modal-comment">Комментарий</p>
+            </div>
+
+            
+            <div class="modal-nav">
+              
+                <button class="nav-btn nav-prev" id="prevBtn" aria-label="Предыдущая фотография" title="Предыдущая (←)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+
+         
+                <button class="nav-btn nav-next" id="nextBtn" aria-label="Следующая фотография" title="Следующая (→)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+
+            <div class="modal-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div class="modal-counter">
+                <span id="currentIndex">1</span> / <span id="totalIndex">6</span>
+            </div>
+
+            
+            <button class="modal-close" id="closeBtn" aria-label="Закрыть просмотр" title="Закрыть (ESC)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <script type="application/json" id="galleryData">
+[
+    {
+        "title": "",
+        "author": "",
+        "comment": "",
+        "image": "./assets/img/gallery/1.jpg"
+    },
+    {
+        "title": "",
+        "author": "",
+        "comment": "",
+        "image": "./assets/img/gallery/2.jpg"
+    },
+    {
+        "title": "",
+        "author": "",
+        "comment": "",
+        "image": "./assets/img/gallery/3.jpg"
+    },
+    {
+        "title": "",
+        "author": "",
+        "comment": "",
+        "image": "./assets/img/gallery/4.jpg"
+    },
+    {
+        "title": "",
+        "author": "",
+        "comment": "",
+        "image": "./assets/img/gallery/5.jpg"
+    },
+    {
+        "title": "",
+        "author": "",
+        "comment": "",
+        "image": "./assets/img/gallery/6.jpg"
+    }
+]
+</script>
+
+
     <section class="content-section" id="traditions" aria-labelledby="traditions-title">
         <div class="container">
             <h2 class="section-title" id="traditions-title">Заложить основу под будущий урожай</h2>
@@ -180,10 +268,11 @@
         </div>
     </section>
 
-    <!-- ВИКТОРИНА -->
+ 
     <section class="quiz" id="quiz" aria-labelledby="quiz-title">
         <div class="container">
-            <h2 class="section-title" id="quiz-title" style="color: white; margin-bottom: 50px;">Тест знаний про Коляду</h2>
+            <h2 class="section-title" id="quiz-title" style="color: white; margin-bottom: 50px;">Тест знаний про Коляду
+            </h2>
 
             <div class="quiz-container" role="region" aria-label="Интерактивная викторина">
                 <div class="quiz-progress" aria-live="polite">
@@ -215,7 +304,8 @@
                     <div class="quiz-options" role="group">
                         <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Веселье</button>
                         <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Болезнь</button>
-                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Плодородие и благополучный урожай</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Плодородие и
+                            благополучный урожай</button>
                         <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Войну</button>
                     </div>
                 </div>
@@ -234,7 +324,8 @@
                     <div class="question-text">Какие работы были запрещены в колядный период после обеда?</div>
                     <div class="quiz-options" role="group">
                         <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Готовка</button>
-                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Шитье, вышивание, вязание</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Шитье, вышивание,
+                            вязание</button>
                         <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Умывание</button>
                         <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Говорение</button>
                     </div>
@@ -258,21 +349,25 @@
 
             <div class="projects-viewport" data-autoplay="true" data-interval="5000">
                 <div class="projects-stage">
-                    <a href="https://www.sb.by/sp/simvol-sily-i-krasoty/" class="project-card" target="_blank" rel="noopener noreferrer">
-                        <img src="./assets/img/projects/hero1.jpg" loading="lazy" alt="Символ силы и красоты - новогодний материал" />
+                    <a href="https://www.sb.by/sp/simvol-sily-i-krasoty/" class="project-card" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./assets/img/projects/hero1.jpg" loading="lazy"
+                            alt="Символ силы и красоты - новогодний материал" />
                         <div class="project-info">
                             <h3>Символ силы и красоты</h3>
                         </div>
                     </a>
 
-                    <a href="https://www.sb.by/sp/more-snega-krutye-trassy/" class="project-card is-active" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.sb.by/sp/more-snega-krutye-trassy/" class="project-card is-active"
+                        target="_blank" rel="noopener noreferrer">
                         <img src="./assets/img/projects/hero.jpg" loading="lazy" alt="Горнолыжный центр Силичи зимой" />
                         <div class="project-info">
                             <h3>Что происходит сейчас в горнолыжных центрах?</h3>
                         </div>
                     </a>
 
-                    <a href="https://www.sb.by/sp/po-skolzkoj-dorozhke/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.sb.by/sp/po-skolzkoj-dorozhke/" class="project-card" target="_blank"
+                        rel="noopener noreferrer">
                         <img src="./assets/img/projects/hero123.jpg" loading="lazy"
                             alt="Безопасные способы развлечений зимой" />
                         <div class="project-info">
