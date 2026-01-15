@@ -4,22 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Коляда — Белорусский праздник</title>
+    <meta name="description" content="Коляда — яркий белорусский народный праздник. Узнайте о традициях, обычаях и истории празднования Коляды в Полыковичах.">
+    <meta name="keywords" content="Коляда, белорусский праздник, традиции, Полыковичи">
+    <meta name="author" content="SB.BY">
+    
+    <title>Коляда — Белорусский праздник | SB.BY</title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+    <link rel="shortcut icon" href="./assets/favicon/favicon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/main.css">
-    >
 </head>
 
 <body>
     <!-- Снежинки -->
-    <div id="snowflakes"></div>
+    <div id="snowflakes" aria-hidden="true"></div>
 
     <!-- НАВИГАЦИЯ -->
-    <nav>
-        <div class="logo" onclick="scrollToTop()">
-            <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
+    <nav role="navigation" aria-label="Основная навигация">
+        <div class="logo" onclick="scrollToTop()" role="button" tabindex="0" aria-label="На главную">
+            <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer" aria-label="Перейти на SB.BY">
                 <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
                 <span class="logo-text">SB.BY</span>
             </a>
@@ -30,30 +35,30 @@
             <a href="#traditions" class="nav-link">Традиции</a>
             <a href="#quiz" class="nav-link">Викторина</a>
         </div>
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" role="button" aria-label="Открыть меню" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </nav>
 
-    <!-- ГЕРОЙ -->
-    <section class="hero">        
+ 
+    <section class="hero" aria-label="Приветственный баннер">
         <div class="hero-content">
-            <div class="live-report" id="live">
+            <div class="live-report" id="live" aria-label="Живой репортаж">
                 ЖИВОЙ РЕПОРТАЖ
             </div>
             <h1>Пришла Коляда<br>— отворяй ворота</h1>
             <p>✦ Яркий и колоритный народный праздник ✦</p>
-            <button class="cta-button"
+            <button class="cta-button" aria-label="Перейти к информации о празднике"
                 onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Узнать больше</button>
         </div>
     </section>
 
-    <!-- О ПРАЗДНИКЕ -->
-    <section class="content-section" id="about">
+   
+    <section class="content-section" id="about" aria-labelledby="about-title">
         <div class="container">
-            <h2 class="section-title">О Коляде</h2>
+            <h2 class="section-title" id="about-title">О Коляде</h2>
             <div class="content-text">
                 <p>Коляда — <span class="highlight">яркий и колоритный народный праздник</span>, который приносит много
                     радости и веселья. Он наполнен сакральными смыслами и отсылает нас к корням, помогая сохранять связь
@@ -72,66 +77,65 @@
     </section>
 
     <!-- ГАЛЕРЕЯ -->
-    <section class="gallery" id="gallery">
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
         <div class="container">
-            <h2 class="section-title">Праздничные моменты</h2>
-            <div class="gallery-grid">
-                <!-- ... существующие карточки галереи ... -->
+            <h2 class="section-title" id="gallery-title">Праздничные моменты</h2>
+            <div class="gallery-grid" role="region" aria-label="Галерея фотографий">
                 <div class="photo-card">
-                    <div class="photo-placeholder">🎭</div>
+                    <div class="photo-placeholder" aria-hidden="true">🎭</div>
                     <div class="photo-info">
                         <div class="photo-title">Ряженые дома</div>
-                        <div class="photo-author">Иван Петрович</div>
+                        <div class="photo-author">Автор: Иван Петрович</div>
                         <div class="photo-comment">"Когда видишь таких ряженых на пороге, сразу становится весело! Это
                             волшебство настоящего."</div>
                     </div>
                 </div>
 
                 <div class="photo-card">
-                    <div class="photo-placeholder">🎵</div>
+                    <div class="photo-placeholder" aria-hidden="true">🎵</div>
                     <div class="photo-info">
                         <div class="photo-title">Колядные напевы</div>
-                        <div class="photo-author">Мария Сидоренко</div>
+                        <div class="photo-author">Автор: Мария Сидоренко</div>
                         <div class="photo-comment">"Эти душевные мотивы разносятся по всему агрогородку, даже январский
                             мороз отступает перед задором!"</div>
                     </div>
                 </div>
 
                 <div class="photo-card">
-                    <div class="photo-placeholder">🌾</div>
+                    <div class="photo-placeholder" aria-hidden="true">🌾</div>
                     <div class="photo-info">
                         <div class="photo-title">Зерно для урожая</div>
-                        <div class="photo-author">Татьяна Жигалина</div>
+                        <div class="photo-author">Автор: Татьяна Жигалина</div>
                         <div class="photo-comment">"Колядовщики рассыпают в доме зерно, заложивая основу под будущий
                             урожай. Древняя мудрость предков."</div>
                     </div>
                 </div>
 
                 <div class="photo-card">
-                    <div class="photo-placeholder">🥣</div>
+                    <div class="photo-placeholder" aria-hidden="true">🥣</div>
                     <div class="photo-info">
                         <div class="photo-title">Святая кутья</div>
-                        <div class="photo-author">Елена Козлова</div>
+                        <div class="photo-author">Автор: Елена Козлова</div>
                         <div class="photo-comment">"Кутья на праздничном столе — это не просто каша, это молитва и
                             благодарность высшим силам за достаток."</div>
                     </div>
                 </div>
 
                 <div class="photo-card">
-                    <div class="photo-placeholder">🎉</div>
+                    <div class="photo-placeholder" aria-hidden="true">🎉</div>
                     <div class="photo-info">
                         <div class="photo-title">Веселые проказы</div>
-                        <div class="photo-author">Дмитрий Новиков</div>
+                        <div class="photo-author">Автор: Дмитрий Новиков</div>
                         <div class="photo-comment">"Девчата переодели самого красивого хлопца в женский наряд! Смеху
                             было не переносить, вот это праздник!"</div>
                     </div>
                 </div>
 
                 <div class="photo-card">
-                    <div class="photo-placeholder">⛄</div>
+                    <div class="photo-placeholder" aria-hidden="true">⛄</div>
                     <div class="photo-info">
                         <div class="photo-title">Зимняя магия</div>
-                        <div class="photo-author">Анна Белоус</div>
+                        <div class="photo-author">Автор: Анна Белоус</div>
                         <div class="photo-comment">"На Коляду происходит чудо — старое уходит, новое приходит. Мороз,
                             песни, смех и радость каждого дома."</div>
                     </div>
@@ -141,9 +145,9 @@
     </section>
 
     <!-- ТРАДИЦИИ -->
-    <section class="content-section" id="traditions">
+    <section class="content-section" id="traditions" aria-labelledby="traditions-title">
         <div class="container">
-            <h2 class="section-title">Заложить основу под будущий урожай</h2>
+            <h2 class="section-title" id="traditions-title">Заложить основу под будущий урожай</h2>
             <div class="content-text">
                 <p>Колядные напевы разлетаются по всему агрогородку Полыковичи, и от этих <span
                         class="highlight">душевных мотивов становится легко и весело</span>. Даже январский мороз
@@ -177,63 +181,62 @@
     </section>
 
     <!-- ВИКТОРИНА -->
-    <section class="quiz" id="quiz">
+    <section class="quiz" id="quiz" aria-labelledby="quiz-title">
         <div class="container">
-            <h2 class="section-title" style="color: white; margin-bottom: 50px;">Тест знаний про Коляду</h2>
+            <h2 class="section-title" id="quiz-title" style="color: white; margin-bottom: 50px;">Тест знаний про Коляду</h2>
 
-            <div class="quiz-container">
-                <div class="quiz-progress">
+            <div class="quiz-container" role="region" aria-label="Интерактивная викторина">
+                <div class="quiz-progress" aria-live="polite">
                     Вопрос <span id="currentQuestion">1</span> из <span id="totalQuestions">5</span>
                 </div>
 
                 <div class="quiz-question active">
                     <div class="question-text">В каком агрогородке живет традиция Коляды?</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" onclick="checkAnswer(this, true)">Полыковичи</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Витебск</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Минск</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Гродно</div>
+                    <div class="quiz-options" role="group">
+                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Полыковичи</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Витебск</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Минск</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Гродно</button>
                     </div>
                 </div>
 
                 <div class="quiz-question">
                     <div class="question-text">Сколько видов Коляды празднуют в Полыковичах?</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Две</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, true)">Три</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Четыре</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Пять</div>
+                    <div class="quiz-options" role="group">
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Две</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Три</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Четыре</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Пять</button>
                     </div>
                 </div>
 
                 <div class="quiz-question">
                     <div class="question-text">Что символизировало рассыпание зерна в доме?</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Веселье</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Болезнь</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, true)">Плодородие и благополучный урожай
-                        </div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Войну</div>
+                    <div class="quiz-options" role="group">
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Веселье</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Болезнь</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Плодородие и благополучный урожай</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Войну</button>
                     </div>
                 </div>
 
                 <div class="quiz-question">
                     <div class="question-text">Какое блюдо обязательно было на столе в Коляду?</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Борщ</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, true)">Кутья</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Мясной суп</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Уха</div>
+                    <div class="quiz-options" role="group">
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Борщ</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Кутья</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Мясной суп</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Уха</button>
                     </div>
                 </div>
 
                 <div class="quiz-question">
                     <div class="question-text">Какие работы были запрещены в колядный период после обеда?</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Готовка</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, true)">Шитье, вышивание, вязание</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Умывание</div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">Говорение</div>
+                    <div class="quiz-options" role="group">
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Готовка</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, true)" tabindex="0">Шитье, вышивание, вязание</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Умывание</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, false)" tabindex="0">Говорение</button>
                     </div>
                 </div>
 
@@ -246,105 +249,81 @@
         </div>
     </section>
 
+    <!-- РЕПОРТАЖИ -->
+    <section class="projects-section" id="projects" aria-label="Живой репортаж — материалы">
+        <div class="projects-inner container">
+            <div class="section-header">
+                <h2 class="section-title">Живой репортаж — материалы</h2>
+            </div>
+
+            <div class="projects-viewport" data-autoplay="true" data-interval="5000">
+                <div class="projects-stage">
+                    <a href="https://www.sb.by/sp/simvol-sily-i-krasoty/" class="project-card" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/img/projects/hero1.jpg" loading="lazy" alt="Символ силы и красоты - новогодний материал" />
+                        <div class="project-info">
+                            <h3>Символ силы и красоты</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.sb.by/sp/more-snega-krutye-trassy/" class="project-card is-active" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/img/projects/hero.jpg" loading="lazy" alt="Горнолыжный центр Силичи зимой" />
+                        <div class="project-info">
+                            <h3>Что происходит сейчас в горнолыжных центрах?</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.sb.by/sp/po-skolzkoj-dorozhke/" class="project-card" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/img/projects/hero123.jpg" loading="lazy"
+                            alt="Безопасные способы развлечений зимой" />
+                        <div class="project-info">
+                            <h3>Как и на чем зимой покататься с горки, чтобы не угодить в травматологию</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="projects-footer">
+                <a href="https://www.sb.by/articles/themes/spetsproekt-sb-nash-zhivoy-reportazh/"
+                    class="btn-all-projects" target="_blank" rel="noopener noreferrer">
+                    Смотреть все материалы
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
-    <footer>
-        <p>✦ Пришла Коляда — отворяй ворота ✦</p>
-        <p>Белорусский народный праздник • Традиции и магия зимних торжеств</p>
-        <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.8;">Создано с любовью к белорусской культуре</p>
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-credits">
+                <p>Автор текста: <strong>Инна ГОРБАТЕНКО</strong></p>
+                <p>Фотография: <strong>Кирилл СТАСЬКО</strong></p>
+            </div>
+
+            <hr class="footer-divider" />
+
+            <div class="footer-copy">© Издательский дом «Беларусь сегодня»</div>
+        </div>
     </footer>
 
     <!-- Кнопка Back to Top -->
-    <div class="back-to-top" id="backToTop">
+    <button class="back-to-top" id="backToTop" aria-label="Вернуться в начало страницы">
         <div class="images-container">
             <div class="image-wrapper">
-                <img src="./assets/img/koladki-1.png"
-                    alt="Вверх" class="animated-image image-1">
+                <img src="./assets/img/koladki-1.png" alt="" class="animated-image image-1">
             </div>
             <div class="image-wrapper">
-                <img src="./assets/img/koladki-2.png"
-                    alt="Вниз" class="animated-image image-2">
+                <img src="./assets/img/koladki-2.png" alt="" class="animated-image image-2">
             </div>
             <div class="image-wrapper">
-                <img src="./assets/img/koladki-3.png"
-                    alt="Круг" class="animated-image image-3">
+                <img src="./assets/img/koladki-3.png" alt="" class="animated-image image-3">
             </div>
             <div class="image-wrapper">
-                <img src="./assets/img/koladki-4.png"
-                    alt="Квадрат" class="animated-image image-4">
+                <img src="./assets/img/koladki-4.png" alt="" class="animated-image image-4">
             </div>
         </div>
-    </div>
-
+    </button>
 
     <script src="./assets/js/main.js"></script>
-    <script>
-        window.addEventListener("load", () => {
-            setTimeout(loadYandexMetrika, 3000);
-            setTimeout(loadGTM, 4000);
-        });
-
-        function loadYandexMetrika() {
-            (function (m, e, t, r, i, k, a) {
-                m[i] =
-                    m[i] ||
-                    function () {
-                        (m[i].a = m[i].a || []).push(arguments);
-                    };
-                m[i].l = 1 * new Date();
-                for (var j = 0; j < document.scripts.length; j++) {
-                    if (document.scripts[j].src === r) return;
-                }
-                (k = e.createElement(t)),
-                    (a = e.getElementsByTagName(t)[0]),
-                    (k.async = 1),
-                    (k.src = r),
-                    a.parentNode.insertBefore(k, a);
-            })(
-                window,
-                document,
-                "script",
-                "https://mc.yandex.ru/metrika/tag.js",
-                "ym"
-            );
-
-            ym(16707172, "init", {
-                webvisor: true,
-                clickmap: true,
-                accurateTrackBounce: true,
-                trackLinks: true,
-            });
-        }
-
-        function loadGTM() {
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != "dataLayer" ? "&l=" + l : "";
-                j.async = true;
-                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", "GTM-KRVNNK");
-        }
-    </script>
-    <style>
-        @keyframes snowfall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-
-            90% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
 </body>
 
 </html>
