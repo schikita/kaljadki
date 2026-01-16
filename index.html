@@ -57,6 +57,24 @@
         </div>
     </section>
 
+    <section class="kolyada-animation" id="kolyadaSection">
+        <div class="kolyada-container">
+            <!-- Canvas для рисования следов на снегу -->
+            <canvas id="footprints-canvas" class="footprints-canvas"></canvas>
+
+            <!-- Контейнер для фигур колядников -->
+            <div class="characters-container" id="charactersContainer">
+                <!-- Колядники будут добавлены JS -->
+            </div>
+
+            <!-- Финальное фото с текстом -->
+            <div class="kolyada-photo-wrapper" id="photoWrapper">
+                <div class="kolyada-photo"></div>
+                <h2 class="kolyada-title">КАЛЯДЫ 2026</h2>
+            </div>
+        </div>
+    </section>
+
 
     <section class="content-section" id="about" aria-labelledby="about-title">
         <div class="container">
@@ -78,92 +96,92 @@
         </div>
     </section>
 
-  
+
 
     <section class="gallery" id="gallery" aria-labelledby="gallery-title">
         <div class="container">
             <h2 class="section-title" id="gallery-title">Праздничные моменты</h2>
 
-       
+
             <div class="gallery-grid" role="region" aria-label="Галерея фотографий">
                 <div class="gallery-item" data-index="0">
                     <img src="./assets/img/gallery/1.jpg" alt="Ряженые дома" loading="lazy" class="gallery-image">
                     <div class="gallery-overlay">
-                     
+
                     </div>
                 </div>
 
                 <div class="gallery-item" data-index="1">
                     <img src="./assets/img/gallery/2.jpg" alt="Колядные напевы" loading="lazy" class="gallery-image">
                     <div class="gallery-overlay">
-                      
+
                     </div>
                 </div>
 
                 <div class="gallery-item" data-index="2">
                     <img src="./assets/img/gallery/3.jpg" alt="Зерно для урожая" loading="lazy" class="gallery-image">
                     <div class="gallery-overlay">
-                       
+
                     </div>
                 </div>
 
                 <div class="gallery-item" data-index="3">
                     <img src="./assets/img/gallery/4.jpg" alt="Святая кутья" loading="lazy" class="gallery-image">
                     <div class="gallery-overlay">
-                       
+
                     </div>
                 </div>
 
                 <div class="gallery-item" data-index="4">
                     <img src="./assets/img/gallery/5.jpg" alt="Веселые проказы" loading="lazy" class="gallery-image">
                     <div class="gallery-overlay">
-                      
+
                     </div>
                 </div>
 
                 <div class="gallery-item" data-index="5">
                     <img src="./assets/img/gallery/6.jpg" alt="Зимняя магия" loading="lazy" class="gallery-image">
                     <div class="gallery-overlay">
-                     
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
- 
+
     <div class="modal-gallery" id="modalGallery" role="dialog" aria-modal="true"
         aria-label="Просмотр фотографии в полном размере">
-    
+
         <div class="modal-backdrop"></div>
 
 
         <div class="modal-content">
-            
+
             <div class="modal-image-container">
                 <img id="modalImage" src="" alt="" class="modal-image">
 
-           
+
                 <div class="loading-spinner"></div>
             </div>
 
-        
+
             <div class="modal-info">
                 <h3 id="modalTitle" class="modal-title">Название фото</h3>
                 <p id="modalAuthor" class="modal-author">Автор</p>
                 <p id="modalComment" class="modal-comment">Комментарий</p>
             </div>
 
-            
+
             <div class="modal-nav">
-              
+
                 <button class="nav-btn nav-prev" id="prevBtn" aria-label="Предыдущая фотография" title="Предыдущая (←)">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
                 </button>
 
-         
+
                 <button class="nav-btn nav-next" id="nextBtn" aria-label="Следующая фотография" title="Следующая (→)">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="9 18 15 12 9 6"></polyline>
@@ -180,7 +198,7 @@
                 <span id="currentIndex">1</span> / <span id="totalIndex">6</span>
             </div>
 
-            
+
             <button class="modal-close" id="closeBtn" aria-label="Закрыть просмотр" title="Закрыть (ESC)">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -268,7 +286,7 @@
         </div>
     </section>
 
- 
+
     <section class="quiz" id="quiz" aria-labelledby="quiz-title">
         <div class="container">
             <h2 class="section-title" id="quiz-title" style="color: white; margin-bottom: 50px;">Тест знаний про Коляду
@@ -340,7 +358,7 @@
         </div>
     </section>
 
-    
+
     <section class="projects-section" id="projects" aria-label="Живой репортаж — материалы">
         <div class="projects-inner container">
             <div class="section-header">

@@ -254,14 +254,24 @@ function checkAnswer(element, isCorrect) {
     element.classList.add("incorrect");
     element.textContent += " ✗";
     
-    // Показываем правильный ответ
-    options.forEach((opt) => {
-      if (opt.classList.contains("correct")) {
-        opt.style.opacity = "1";
-      } else if (opt !== element) {
-        opt.style.opacity = "0.3";
-      }
+    // Находим правильный ответ через onclick атрибут
+    const correctOption = Array.from(options).find(opt => {
+      return opt.getAttribute('onclick')?.includes('true');
     });
+
+    // Через 1 секунду плавно подсвечиваем правильный ответ
+    setTimeout(() => {
+      if (correctOption) {
+        correctOption.classList.add("correct");
+      }
+      
+      // Затемняем остальные неправильные ответы
+      options.forEach((opt) => {
+        if (opt !== correctOption && opt !== element) {
+          opt.style.opacity = "0.3";
+        }
+      });
+    }, 1000);
   }
 
   setTimeout(() => {
@@ -653,3 +663,166 @@ document.addEventListener('DOMContentLoaded', () => {
   window.gallery = gallery;
 });
 
+
+
+// ========== КОЛЯДА АНИМАЦИЯ ==========
+
+class KolyadaAnimation {
+  constructor() {
+    this.section = document.getElementById('kolyadaSection');
+    this.container = document.getElementById('charactersContainer');
+    this.canvas = document.getElementById('footprints-canvas');
+    this.photoWrapper = document.getElementById('photoWrapper');
+    this.ctx = this.canvas?.getContext('2d');
+    this.isAnimating = false;
+
+    // ЗДЕСЬ УКАЗЫВАЕТЕ ПУТИ К ВАШИМ PNG КАРТИНКАМ
+    this.characterImages = [
+      './assets/img/sec-2/1-1.png',  // Картинка 1
+       './assets/img/sec-2/2-1.png',  // Картинка 2
+       './assets/img/sec-2/3-1.png',  // Картинка 3
+       './assets/img/sec-2/4-1.png'   // Картинка 4
+    ];
+
+    if (!this.section || !this.container || !this.canvas) return;
+
+    this.setupCanvas();
+    this.createCharacters();
+    this.setupObserver();
+  }
+
+  setupCanvas() {
+    this.canvas.width = this.section.offsetWidth;
+    this.canvas.height = this.section.offsetHeight;
+
+    window.addEventListener('resize', () => {
+      this.canvas.width = this.section.offsetWidth;
+      this.canvas.height = this.section.offsetHeight;
+    });
+  }
+
+  createCharacters() {
+    // Используем пути к ваши PNG картинкам
+    this.characterImages.forEach((imagePath, i) => {
+      const char = document.createElement('div');
+      char.className = 'character';
+      char.dataset.index = i;
+      
+      // Устанавливаем картинку как фон
+      char.style.backgroundImage = `url('${imagePath}')`;
+
+      this.container.appendChild(char);
+    });
+  }
+
+  // Остальные методы остаются без изменений...
+  setupObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !this.isAnimating) {
+            this.isAnimating = true;
+            this.startAnimation();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(this.section);
+  }
+
+  startAnimation() {
+    this.drawFootprintsAnimation();
+    setTimeout(() => {
+      this.showFinalPhoto();
+    }, 3500);
+  }
+
+  drawFootprintsAnimation() {
+    const startTime = Date.now();
+    const duration = 3000;
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      if (progress === 0) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      }
+
+      this.drawFootprints(progress);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    animate();
+  }
+
+  drawFootprints(progress) {
+    const baseX = this.canvas.width * 0.1 + (this.canvas.width * 0.4 * progress);
+    const baseY = this.canvas.height * 0.65;
+
+    for (let i = 0; i < 4; i++) {
+      const yOffset = (i - 1.5) * 50;
+      const footprintCount = Math.floor(progress * 8);
+
+      for (let j = 0; j < footprintCount; j++) {
+        const x = baseX - (footprintCount - j) * 30;
+        const y = baseY + yOffset;
+        const age = footprintCount - j;
+        const opacity = Math.max(0.1, 1 - age / footprintCount);
+
+        this.drawFootprint(x, y, opacity);
+      }
+    }
+  }
+
+  drawFootprint(x, y, opacity) {
+    this.ctx.save();
+    this.ctx.globalAlpha = opacity * 0.4;
+    this.ctx.fillStyle = '#a8d8ff';
+    this.ctx.strokeStyle = '#7db8e8';
+    this.ctx.lineWidth = 1;
+
+    this.ctx.beginPath();
+    this.ctx.ellipse(x, y, 15, 25, 0.2, 0, Math.PI * 2);
+    this.ctx.fill();
+    this.ctx.stroke();
+
+    for (let i = 0; i < 4; i++) {
+      this.ctx.beginPath();
+      this.ctx.ellipse(
+        x - 12 + i * 6,
+        y - 22,
+        4,
+        8,
+        0,
+        0,
+        Math.PI * 2
+      );
+      this.ctx.fill();
+      this.ctx.stroke();
+    }
+
+    this.ctx.restore();
+  }
+
+  showFinalPhoto() {
+    const characters = this.container.querySelectorAll('.character');
+    characters.forEach((char) => {
+      char.style.opacity = '0';
+      char.style.transition = 'opacity 0.5s ease';
+    });
+
+    setTimeout(() => {
+      this.photoWrapper.classList.add('show');
+    }, 300);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  new KolyadaAnimation();
+});
